@@ -193,7 +193,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				//	delay_ms(100);
 					if(stopflag==1)
 					{
-					+	delay_ms(300);
+						delay_ms(300);
 						stopflag=0;
 					}
 					else if(stopflag==2)
