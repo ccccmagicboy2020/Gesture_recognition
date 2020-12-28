@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    network_handc5.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Wed Nov  4 17:40:34 2020
+  * @date    Wed Dec 16 17:21:50 2020
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention
@@ -29,13 +29,13 @@
 
 #define AI_NETWORK_HANDC5_IN_NUM       (1)
 #define AI_NETWORK_HANDC5_IN { \
-  AI_BUFFER_OBJ_INIT(AI_BUFFER_FORMAT_FLOAT, 50, 60, 1, 1, NULL), \
+  AI_BUFFER_OBJ_INIT(AI_BUFFER_FORMAT_FLOAT, 50, 80, 1, 1, NULL), \
 }
 #define AI_NETWORK_HANDC5_IN_SIZE { \
-  (50 * 60 * 1), \
+  (50 * 80 * 1), \
 }
-#define AI_NETWORK_HANDC5_IN_1_SIZE  (50 * 60 * 1)
-#define AI_NETWORK_HANDC5_IN_1_SIZE_BYTES  ((50 * 60 * 1) * 4)
+#define AI_NETWORK_HANDC5_IN_1_SIZE  (50 * 80 * 1)
+#define AI_NETWORK_HANDC5_IN_1_SIZE_BYTES  ((50 * 80 * 1) * 4)
 
 
 

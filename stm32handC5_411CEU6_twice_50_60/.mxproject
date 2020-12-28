@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/code/STM32/stable/stm32handC5_411CEU6_twice_50_60/Inc
+HeaderPath=C:/code/STM32/stable/stm32handC5_411CEU6_twice_50_80AIC/Inc
 HeaderFiles=gpio.h;crc.h;app_x-cube-ai.h;constants_ai.h;usart.h;stm32f4xx_it.h;RTE_Components.h;stm32f4xx_hal_conf.h;main.h;
-SourcePath=C:/code/STM32/stable/stm32handC5_411CEU6_twice_50_60/Src
+SourcePath=C:/code/STM32/stable/stm32handC5_411CEU6_twice_50_80AIC/Src
 SourceFiles=gpio.c;crc.c;app_x-cube-ai.c;usart.c;stm32f4xx_it.c;stm32f4xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]

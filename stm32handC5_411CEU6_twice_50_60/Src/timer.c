@@ -3,6 +3,8 @@
 #include "adc.h"
 #include "stdio.h"
 #include "delay.h"
+#include "auto_trip_50hz.h"
+
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32F407开发板
@@ -27,7 +29,7 @@ TIM_OC_InitTypeDef TIM10_CH1Handler;	//定时器14通道1句柄
 
 u16 Timer_Count = 0;//溢出次数
 //u16 AD_Value1[1024]={0};
-s16  AD_Value[1024]={0};
+s16  AD_Value[1018]={0};
 float temp_val=0;
 u8 mea= 0;
 u8 stopflag=0;
@@ -181,19 +183,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			
 				Timer_Count++;
 				
-				if(Timer_Count == 868)//1024
+				if(Timer_Count == 1018)//1024
 				{
 					
 					temp_val=temp_val/Timer_Count;
-					for(i=0;i<868;i++)//1024
+					for(i=0;i<1018;i++)//1024
 					{
-							AD_Value[i] = AD_Value[i] - temp_val ; 
+							AD_Value[i] = AD_Value[i] - (short)temp_val; 
 					//	  printf("%.2f \r",AD_Value[i]);
 					}
 				//	delay_ms(100);
 					if(stopflag==1)
 					{
-						delay_ms(300);
+//						delay_ms(300);
 						stopflag=0;
 					}
 					else if(stopflag==2)
@@ -201,8 +203,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 //						delay_ms(2000);
 						stopflag=0;
 					}
-          mea=1;					
-//					measure_fft();	
+          mea=1;
+					auto_trip_50hz2(AD_Value, 1000,  50, AD_Value);
+
+					measure_fft();	
 						
 					Timer_Count = 0;
 					temp_val = 0;

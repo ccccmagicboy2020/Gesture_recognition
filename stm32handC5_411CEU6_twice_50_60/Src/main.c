@@ -17,18 +17,18 @@
 #include "led.h"
 
 #define FFT_LENGTH		128 		//FFT长度
-extern s16 AD_Value[868];   //直流有负数且不超过256 1024
+extern s16 AD_Value[1018];   //直流有负数且不超过256 1024
 extern u8 mea;
 extern u8 stopflag;
-ai_u16 t1[50][75]={0};
+ai_u16 t1[50][80]={0};
 ai_u16 t[50]= {0} ;
-ai_float in_data[3000]={0};
+ai_float in_data[4000]={0};
 ai_float out_data1[4];
 ai_float out_data2[4];
 //ai_float out_data3[4];
 const float threshold=0.99f;
-const float threshold2=0.9f;
-const float threshold3=0.95f;
+const float threshold2=0.95f;
+const float threshold3=0.99f;
 
 ai_u8 upordownbright=0;//up:0;down:1
 ai_u8 upordowncolor=0;//up:0;down:1
@@ -154,7 +154,7 @@ void measure_fft(void)
 //		}
 	  s16 max=0, min = 0,cut;
     float s;		
-    for(ai_u8 a=0;a<75;a++)//90
+    for(ai_u8 a=0;a<90;a++)//90
 		{
 			fft256(a);
 			for(ai_u8 i=0;i<50;i++)
@@ -166,7 +166,7 @@ void measure_fft(void)
 //quant to 0~255
 		min = t1[0][0];
     max = t1[0][0];
-		for(ai_u8 c=0;c<75;c++)//90
+		for(ai_u8 c=0;c<90;c++)//90
 		{
 			for(ai_u8 i=0;i<50;i++)
 			{ 
@@ -185,7 +185,7 @@ void measure_fft(void)
 	 cut = max -min;
 //	  printf("%d %d %d \n" ,max,min,cut);
 //    printf(" \n");
-	 for(ai_u8 c=0;c<75;c++)//90
+	 for(ai_u8 c=0;c<90;c++)//90
 	 {
 		 for(ai_u8 i=0;i<50;i++)
 		 {
@@ -204,9 +204,9 @@ void measure_fft(void)
 	//	printf("END60*90  \n");
 		for(ai_u8 i=0;i<50;i++)
 		{
-			for(ai_u8 c=0;c<60;c++)
+			for(ai_u8 c=0;c<80;c++)
 			{
-				in_data[i*60+c] = t1[i][c]; 
+				in_data[i*80+c] = t1[i][c]; 
 			}
 		  	
 		}
@@ -216,9 +216,9 @@ void measure_fft(void)
 		
 		for(ai_u8 i=0;i<50;i++)
 		{
-			for(ai_u8 c=15;c<75;c++)
+			for(ai_u8 c=10;c<90;c++)
 			{
-				in_data[i*60+(c-15)] = t1[i][c]; 
+				in_data[i*80+(c-10)] = t1[i][c]; 
 			}
 		  	
 		}
@@ -442,11 +442,11 @@ int main(void)
 	
   while (1)
   {
-			if(mea == 1)
-			{
-				 measure_fft();
-         mea = 0;				
-			}
+//			if(mea == 1)
+//			{
+//				 measure_fft();
+//         mea = 0;				
+//			}
 	}
 
 }

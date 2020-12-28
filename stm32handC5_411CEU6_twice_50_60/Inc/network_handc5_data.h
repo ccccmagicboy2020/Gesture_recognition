@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    network_handc5_data.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Wed Nov  4 17:40:34 2020
+  * @date    Wed Dec 16 17:21:50 2020
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * @attention
@@ -26,7 +26,7 @@
 
 #define AI_NETWORK_HANDC5_DATA_CONFIG           AI_HANDLE_NULL
 
-#define AI_NETWORK_HANDC5_DATA_ACTIVATIONS_SIZE     (22680)
+#define AI_NETWORK_HANDC5_DATA_ACTIVATIONS_SIZE     (30240)
 
 #define AI_NETWORK_HANDC5_DATA_WEIGHTS_SIZE         (220896)
 
